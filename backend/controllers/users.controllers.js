@@ -29,5 +29,26 @@ const followUser = async (req, res) => {
 	}
 };
 
+const unfollowUser = async (req, res) => {
+	try {
+		const token = req.headers.authorization?.split(" ")[1];
+		const decoded = jwt.verify(token, process.env.JWT_SECRET);
+		const user_id = decoded._id;
+		const following_id = req.body.user_id;
+
+		const user = await User.findByIdAndUpdate(
+			user_id,
+			{ $pull: { following: following_id } }, // Remove user ID from following array
+			{ new: true }
+		);
+
+		res.send(user);
+	} catch (error) {
+		console.error("Error unfollowing user:", error);
+		res.status(500).send({
+			message: "An error occurred while unfollowing user.",
+		});
+	}
+};
 
 module.exports = { getAllUsers, followUser, unfollowUser };
