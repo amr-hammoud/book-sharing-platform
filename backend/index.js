@@ -1,11 +1,27 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const mongooseConnect = require("./configs/mongoDB.connect");
+require("dotenv").config()
 
-app.get("/", (req, res) => {
-	res.send("Hello World!");
-});
+app.use(express.json())
 
-app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
+const authMiddleware = require("./middlewares/auth.middleware");
+
+const authRouter = require("./routes/auth.routes")
+app.use("/auth", authRouter)
+
+const usersRouter = require("./routes/users.routes");
+app.use("/users", authMiddleware, usersRouter)
+
+const booksRouter = require("./routes/books.routes");
+app.use("/books", authMiddleware, booksRouter)
+
+
+app.listen(8000, (err) => {
+	if(err){
+		console.error(err)
+		return
+	}
+	console.log(`Example app listening at http://localhost:${8000}`);
+	mongooseConnect()
 });
