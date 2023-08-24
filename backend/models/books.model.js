@@ -42,6 +42,7 @@ const getFormattedBook = async (book) => {
         user_full_name,
         user_username,
         picture: base64_image,
+		likes_count: book.likes.length
 	}
 
     return returned_book;

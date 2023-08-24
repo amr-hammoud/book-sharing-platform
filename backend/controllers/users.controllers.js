@@ -77,7 +77,6 @@ const getFollowingPosts = async (req, res) => {
 
 		Promise.all(formatted_books_promises)
 			.then((formatted_books) => {
-				console.log(formatted_books);
 				res.send(formatted_books);
 			})
 			.catch((error) => {
