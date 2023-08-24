@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const Book = require("../models/books.model");
+const { Book } = require("../models/books.model");
 const User = require("../models/users.model");
 const jwt = require("jsonwebtoken");
 const { log } = require("console");
@@ -123,4 +123,30 @@ const unlikeBook = async (req, res) => {
 	}
 };
 
-module.exports = { getAllBooks, getBook, createBook, likeBook, unlikeBook };
+const searchBooks = async (req, res) => {
+	try {
+		const query = req.body.query;
+		const searchResults = await Book.find({
+			$or: [
+				{ author: { $regex: query, $options: "i" } },
+				{ name: { $regex: query, $options: "i" } },
+			],
+		}).limit(10);
+
+		res.send(searchResults);
+	} catch (error) {
+		console.error("Error searching books:", error);
+		res.status(500).send({
+			message: "An error occurred while searching books.",
+		});
+	}
+};
+
+module.exports = {
+	getAllBooks,
+	getBook,
+	createBook,
+	likeBook,
+	unlikeBook,
+	searchBooks,
+};

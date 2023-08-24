@@ -7,5 +7,6 @@ router.get("/:id", booksController.getBook)
 router.post("/create", booksController.createBook)
 router.post("/like", booksController.likeBook)
 router.post("/unlike", booksController.unlikeBook)
+router.post("/search", booksController.searchBooks)
 
 module.exports = router;
