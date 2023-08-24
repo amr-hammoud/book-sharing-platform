@@ -102,5 +102,25 @@ const likeBook = async (req, res) => {
 	}
 };
 
+const unlikeBook = async (req, res) => {
+	try {
+		const token = req.headers.authorization?.split(" ")[1];
+		const decoded = jwt.verify(token, process.env.JWT_SECRET);
+		const user_id = decoded._id;
+
+		const updatedBook = await Book.findOneAndUpdate(
+			{ _id: req.body.book_id },
+			{ $pull: { likes: user_id } },
+			{ new: true }
+		);
+
+		res.send(updatedBook);
+	} catch (error) {
+		console.error("Error unliking the book:", error);
+		res.status(500).send({
+			message: "An error occurred while unliking the book.",
+		});
+	}
+};
 
 module.exports = { getAllBooks, getBook, createBook, likeBook, unlikeBook };
