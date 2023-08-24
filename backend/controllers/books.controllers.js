@@ -3,6 +3,7 @@ const path = require("path");
 const Book = require("../models/books.model");
 const User = require("../models/users.model");
 const jwt = require("jsonwebtoken");
+const { log } = require("console");
 
 const getAllBooks = async (req, res) => {
 	const books = await Book.find();
@@ -19,8 +20,11 @@ const getBook = async (req, res) => {
 	);
 	const image_buffer = fs.readFileSync(picture_path);
 
-	const base64_image = "data:image/" + book.picture.split('.')[1] + ";base64," + image_buffer.toString("base64");
-
+	const base64_image =
+		"data:image/" +
+		book.picture.split(".")[1] +
+		";base64," +
+		image_buffer.toString("base64");
 
 	const returned_book = {
 		_id: book._id,
@@ -67,10 +71,36 @@ const createBook = async (req, res) => {
 
 		book.save();
 
+		const user = await User.findByIdAndUpdate(
+			user_id,
+			{ $addToSet: { books: book._id } },
+			{ new: true }
+		);
+
 		res.send(book);
 	} else {
 		res.send("Name, Author, Picture and Review are required");
 	}
 };
 
-module.exports = { getAllBooks, getBook, createBook };
+const likeBook = async (req, res) => {
+	const token = req.headers.authorization?.split(" ")[1];
+	const decoded = jwt.verify(token, process.env.JWT_SECRET);
+	user_id = decoded._id;
+
+	const book = await Book.findById(req.body.book_id);
+	if (!book.likes.includes(user_id)) {
+		const updatedBook = await Book.findOneAndUpdate(
+			{ _id: req.body.book_id },
+			{ $addToSet: { likes: user_id } },
+			{ new: true }
+		);
+
+		res.send(updatedBook);
+	} else {
+		res.status(400).send({ message: "You have already liked this book." });
+	}
+};
+
+
+module.exports = { getAllBooks, getBook, createBook, likeBook, unlikeBook };
