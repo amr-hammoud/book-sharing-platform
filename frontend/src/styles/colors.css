@@ -1,0 +1,27 @@
+.primary-bg {
+  background-color: var(--color-primary);
+}
+
+.light-bg {
+  background-color: var(--color-background);
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.black-bg {
+  background-color: black;
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+.white-text {
+  color: white;
+}
+
+.black-text {
+  color: var(--color-dark-gray);
+}

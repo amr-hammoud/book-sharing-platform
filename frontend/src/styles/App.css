@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+html,
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+input,
+button,
+textarea,
+select,
+input::placeholder {
+  font: inherit;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"] {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html,
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+@font-face {
+  font-family: "Gelpen";
+  src: url("../fonts/GelPen.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Gelpen";
+  src: url("../fonts/GelPenHeavy.ttf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Gelpen";
+  src: url("../fonts/GelPenLight.ttf");
+  font-weight: 200;
+}
+
+:root {
+  --color-primary: #0090ff;
+  --color-background: #f6f8fd;
+  --color-white: #ffffff;
+  --color-text-primary: #181818;
+  --color-text-secondary: #615e77;
+  --color-dark-gray: #383838;
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Gelpen", sans-serif;
+}
+
+
+*,
+*::before,
+*::after {
+  font-family: var(--font-primary);
+}
+
+h1, .h1 {
+  font-family: var(--font-secondary);
+  font-size: 42px;
+  font-weight: bold;
+}
+h2, .h2 {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  font-weight: normal;
+}
+h3, .h3 {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navbar-page{
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}

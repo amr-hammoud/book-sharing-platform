@@ -1,0 +1,97 @@
+.page {
+  width: 100vw;
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.circular {
+  border-radius: 50%;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.fullheight {
+  height: 100%;
+}
+
+.halfheight {
+  height: 50%;
+}
+
+.halfwidth {
+  width: 50%;
+}
+
+.rounded {
+  border-radius: 15px;
+}
+
+.roundedSmall {
+  border-radius: 5px;
+}
+
+.roundedMedium {
+  border-radius: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mx-10 {
+  margin: 0px 10px;
+}
+
+.my-10 {
+  margin: 10px 0px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.g-5 {
+  gap: 5px;
+}
+
+.g-10 {
+  gap: 10px;
+}
