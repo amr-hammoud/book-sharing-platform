@@ -58,7 +58,7 @@ const getFollowingPosts = async (req, res) => {
 		const token = req.headers.authorization?.split(" ")[1];
 		const decoded = jwt.verify(token, process.env.JWT_SECRET);
 		const user_id = decoded._id;
-		const page = parseInt(req.query.page) || 1;
+		const page = parseInt(req.body.page) || 1;
 		const pageSize = parseInt(req.query.pageSize) || 10;
 
 		const user = await User.findById(user_id);

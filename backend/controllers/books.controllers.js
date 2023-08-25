@@ -34,6 +34,7 @@ const getBook = async (req, res) => {
 		user_full_name: user.first_name + " " + user.last_name,
 		user_username: user.username,
 		picture: base64_image,
+		likes: book.likes
 	};
 	res.send(returned_book);
 };
