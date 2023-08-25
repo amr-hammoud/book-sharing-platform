@@ -1,0 +1,31 @@
+.authenticationBox {
+    padding: 20px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.auth-background-image {
+    background-image: url("../../Assets/auth-bg.jpg");
+    filter: blur(3px) brightness(0.6);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+    background-size: cover;
+}
+
+.authenticationBox div{
+    margin: 10px 5px;
+}
+
+.authenticationBox input{
+    border: 1px solid var(--color-dark-gray);
+}
+
+.auth-logo {
+    height: auto;
+    width: 70px;
+    margin: 10px auto;
+
+}
