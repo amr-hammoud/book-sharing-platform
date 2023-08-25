@@ -1,0 +1,15 @@
+.baseInput {
+  align-items: start;
+}
+
+.baseInput > label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.baseInput > input {
+  height: 30px;
+  font-size: 16px;
+  padding: 5px 10px;
+  width: 100%;
+}
