@@ -8,6 +8,11 @@ const getAllUsers = async (req, res) => {
 	res.send(users);
 };
 
+const getUserByUsername = async (req, res) => {
+	const user = await Book.findOne(req.params.username);
+	res.send(user);
+};
+
 const followUser = async (req, res) => {
 	console.log(req.body);
 	try {
