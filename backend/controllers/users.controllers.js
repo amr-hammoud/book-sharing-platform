@@ -9,12 +9,12 @@ const getAllUsers = async (req, res) => {
 };
 
 const getUserByUsername = async (req, res) => {
+	console.log(req.params.username);
 	const user = await Book.findOne(req.params.username);
 	res.send(user);
 };
 
 const followUser = async (req, res) => {
-	console.log(req.body);
 	try {
 		const token = req.headers.authorization?.split(" ")[1];
 		const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -99,4 +99,4 @@ const getFollowingPosts = async (req, res) => {
 	}
 };
 
-module.exports = { getAllUsers, followUser, unfollowUser, getFollowingPosts };
+module.exports = { getAllUsers, followUser, unfollowUser, getFollowingPosts, getUserByUsername };

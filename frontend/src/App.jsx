@@ -15,6 +15,7 @@ function App() {
         <Route path="/" element={<Auth />}/>
         <Route path="/books" element={<Books />}/>
         <Route path="/books/:id?" element={<SingleBook />}/>
+        <Route path="/users/:username" element={<SingleBook />}/>
         <Route path="/create" element={<CreateBook />}/>
         <Route path="/search" element={<Search />}/>
       </Routes>
