@@ -111,3 +111,8 @@
     color: var(--color-background);
     background-color: var(--color-primary);
 }
+
+.username:hover {
+    cursor: pointer;
+    color: var(--color-primary);
+}

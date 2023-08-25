@@ -2,7 +2,7 @@ import "./style.css";
 import { AiTwotoneHeart } from "react-icons/ai";
 import { BsShareFill } from "react-icons/bs";
 import { sendRequest } from "../../config/request";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../Components/Common/Navbar";
 import Popup from "../../Components/Base/Popup";
 import React, { useEffect, useState } from "react";
@@ -12,6 +12,7 @@ import { localStorageAction } from "../../config/localstorage";
 const SingleBook = () => {
 	const { id } = useParams();
 	const location = useLocation();
+	const navigate = useNavigate();
 	const [book, setRecipe] = useState({});
 
 	const [like, setLiked] = useState({
@@ -88,6 +89,8 @@ const SingleBook = () => {
 		setTimeout(() => setPopup({ ...popup, popupIsShown: false }), 1200);
 	};
 
+	console.log(book);
+
 	return (
 		<div>
 			<Navbar items={["Books", "Create", "Search"]} />
@@ -111,7 +114,7 @@ const SingleBook = () => {
 											{book.author}
 										</div>
 										<div className="book-username">
-											By @{book.user_username}
+											By <span className="username" onClick={() => navigate(`/users/${book.user_username}`)}>@{book.user_username}</span>
 										</div>
 									</div>
 									<div className="flex">
