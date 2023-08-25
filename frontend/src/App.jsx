@@ -1,7 +1,7 @@
 import Auth from "./Pages/Auth";
 import Books from "./Pages/Books";
 import SingleBook from "./Pages/SingleBook";
-import CreateRecipe from "./Pages/CreateRecipe";
+import CreateBook from "./Pages/CreateBook";
 import "./styles/App.css";
 import "./styles/utilities.css";
 import "./styles/colors.css";
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Auth />}/>
         <Route path="/books" element={<Books />}/>
         <Route path="/books/:id?" element={<SingleBook />}/>
-        <Route path="/create" element={<CreateRecipe />}/>
+        <Route path="/create" element={<CreateBook />}/>
         <Route path="/search" element={<Search />}/>
       </Routes>
 		</BrowserRouter>

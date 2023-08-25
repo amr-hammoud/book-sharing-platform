@@ -5,7 +5,7 @@ import Input from "../../Components/Base/Input";
 const Search = () => {
 	return (
 		<div className="navbar-page light-bg">
-			<Navbar />
+			<Navbar items={["Books", "Create", "Search"]} selected={"Search"}  />
 			<div className="container white-bg create-book">
 				<div className="flex center color-primary mt-20">
 					<h1>Search Books</h1>

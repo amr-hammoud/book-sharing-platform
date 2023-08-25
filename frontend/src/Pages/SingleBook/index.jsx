@@ -90,7 +90,7 @@ const SingleBook = () => {
 
 	return (
 		<div>
-			<Navbar />
+			<Navbar items={["Books", "Create", "Search"]} />
 			<Popup
 				text={popup.text}
 				popupIsShown={popup.popupIsShown}

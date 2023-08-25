@@ -57,7 +57,7 @@ const Books = () => {
 
 	return (
 		<div>
-			<Navbar />
+			<Navbar items={["Books", "Create", "Search"]} selected={"Books"}  />
 			<div className="navbar-page light-bg">
 				<div className="container white-bg">
 					<div className="flex center color-primary mt-20"></div>
